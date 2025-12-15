@@ -4,12 +4,41 @@
   <meta charset="UTF-8">
   <title>Prenotazioni Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- COLLEGAMENTO AL CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Prenota il tuo servizio</h1>
+<div class="container">
+  <h1>Prenota il tuo servizio</h1>
 
-<p>File index.html creato correttamente.</p>
+  <h2>1. Seleziona servizio</h2>
+  <div class="services">
+    <div class="service">Tagliando</div>
+    <div class="service">Revisione</div>
+    <div class="service">Cambio Gomme</div>
+  </div>
+
+  <h2>2. Seleziona data</h2>
+  <input type="date">
+
+  <h2>3. Seleziona orario</h2>
+  <div class="times">
+    <div>09:00</div>
+    <div>10:00</div>
+    <div>11:00</div>
+    <div>14:00</div>
+  </div>
+
+  <h2>4. Dati cliente</h2>
+  <input placeholder="Nome">
+  <input placeholder="Cognome">
+  <input placeholder="Targa veicolo">
+  <input placeholder="Km veicolo">
+
+  <button>Prenota</button>
+</div>
 
 </body>
 </html>

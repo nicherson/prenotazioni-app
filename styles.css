@@ -173,3 +173,18 @@ button:disabled {
   background: #aaa;
   cursor: not-allowed;
 }
+.hidden {
+  display: none;
+}
+
+.summary {
+  margin-top: 20px;
+  background: #f4f6f8;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.summary p {
+  margin: 8px 0;
+}

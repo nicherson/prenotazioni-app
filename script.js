@@ -1,34 +1,33 @@
 let selectedService = null;
 let selectedTime = null;
 
-const serviceCards = document.querySelectorAll(".service");
-const timeSlots = document.querySelectorAll(".times div");
-const button = document.querySelector("button");
+const services = document.querySelectorAll(".service");
+const times = document.querySelectorAll(".times div");
+const button = document.getElementById("confirmBtn");
 
-// disabilita pulsante all’inizio
 button.disabled = true;
 
-/* SELEZIONE SERVIZIO */
-serviceCards.forEach(card => {
-  card.addEventListener("click", () => {
-    serviceCards.forEach(c => c.classList.remove("selected"));
-    card.classList.add("selected");
-    selectedService = card.innerText;
+/* SERVIZIO */
+services.forEach(s => {
+  s.addEventListener("click", () => {
+    services.forEach(x => x.classList.remove("selected"));
+    s.classList.add("selected");
+    selectedService = s.innerText;
     checkReady();
   });
 });
 
-/* SELEZIONE ORARIO */
-timeSlots.forEach(slot => {
-  slot.addEventListener("click", () => {
-    timeSlots.forEach(s => s.classList.remove("selected"));
-    slot.classList.add("selected");
-    selectedTime = slot.innerText;
+/* ORARIO */
+times.forEach(t => {
+  t.addEventListener("click", () => {
+    times.forEach(x => x.classList.remove("selected"));
+    t.classList.add("selected");
+    selectedTime = t.innerText;
     checkReady();
   });
 });
 
-/* CONTROLLO STATO */
+/* ABILITA BOTTONE */
 function checkReady() {
   if (selectedService && selectedTime) {
     button.disabled = false;
@@ -37,17 +36,25 @@ function checkReady() {
 
 /* CONFERMA */
 button.addEventListener("click", () => {
-  const inputs = document.querySelectorAll("input");
-  for (let input of inputs) {
-    if (!input.value) {
-      alert("Compila tutti i campi");
-      return;
-    }
+  const nome = document.getElementById("nome").value;
+  const cognome = document.getElementById("cognome").value;
+  const targa = document.getElementById("targa").value;
+  const km = document.getElementById("km").value;
+  const date = document.getElementById("date").value;
+
+  if (!nome || !cognome || !targa || !km || !date) {
+    alert("Compila tutti i campi");
+    return;
   }
 
-  alert(
-    "Prenotazione confermata!\n\n" +
-    "Servizio: " + selectedService + "\n" +
-    "Orario: " + selectedTime
-  );
+  // NASCONDI FORM
+  document.getElementById("booking").classList.add("hidden");
+
+  // RIEMPIMENTO RIEPILOGO
+  document.getElementById("sService").innerText = selectedService;
+  document.getElementById("sDate").innerText = date;
+  document.getElementById("sTime").innerText = selectedTime;
+
+  // MOSTRA SUCCESSO
+  document.getElementById("success").classList.remove("hidden");
 });

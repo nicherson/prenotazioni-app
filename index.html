@@ -16,26 +16,26 @@
   <p>Prenota il tuo appuntamento online</p>
 </header>
 
-<div class="container">
+<div class="container" id="booking">
 
   <h2>Seleziona il servizio</h2>
   <div class="services">
     <div class="service">
-      <img src="https://via.placeholder.com/100" alt="">
+      <img src="https://via.placeholder.com/100">
       <span>Tagliando</span>
     </div>
     <div class="service">
-      <img src="https://via.placeholder.com/100" alt="">
+      <img src="https://via.placeholder.com/100">
       <span>Revisione</span>
     </div>
     <div class="service">
-      <img src="https://via.placeholder.com/100" alt="">
+      <img src="https://via.placeholder.com/100">
       <span>Cambio Gomme</span>
     </div>
   </div>
 
   <h2>Seleziona data</h2>
-  <input type="date">
+  <input type="date" id="date">
 
   <h2>Seleziona orario</h2>
   <div class="times">
@@ -46,14 +46,22 @@
   </div>
 
   <h2>Dati cliente</h2>
-  <input placeholder="Nome">
-  <input placeholder="Cognome">
-  <input placeholder="Targa veicolo">
-  <input placeholder="Km veicolo">
+  <input id="nome" placeholder="Nome">
+  <input id="cognome" placeholder="Cognome">
+  <input id="targa" placeholder="Targa veicolo">
+  <input id="km" placeholder="Km veicolo">
 
-  <button>Conferma prenotazione</button>
-
+  <button id="confirmBtn">Conferma prenotazione</button>
 </div>
 
-<script src="script.js"></script>
-</body>
+<!-- SCHERMATA FINALE -->
+<div class="container hidden" id="success">
+  <h2>✅ Prenotazione confermata</h2>
+  <p>Grazie per aver prenotato.</p>
+
+  <div class="summary">
+    <p><strong>Servizio:</strong> <span id="sService"></span></p>
+    <p><strong>Data:</strong> <span id="sDate"></span></p>
+    <p><strong>Orario:</strong> <span id="sTime"></span></p>
+  </div>
+</div>

@@ -100,3 +100,44 @@ button:hover {
 button:active {
   transform: scale(.97);
 }
+.header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.header img {
+  margin-bottom: 10px;
+}
+
+.header p {
+  opacity: .9;
+  font-size: 14px;
+}
+
+/* SERVIZI CARD */
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.service img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: white;
+}
+
+.service span {
+  font-weight: 500;
+}
+
+/* SELEZIONE ATTIVA (usata dal JS) */
+.service.active {
+  outline: 3px solid #fff;
+  box-shadow: 0 0 0 3px var(--primary-dark);
+}

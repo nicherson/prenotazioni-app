@@ -1,36 +1,52 @@
-// Gestione selezione servizio
-const services = document.querySelectorAll(".service");
 let selectedService = null;
-
-services.forEach(service => {
-  service.addEventListener("click", () => {
-    services.forEach(s => s.style.background = "#1e88e5");
-    service.style.background = "#1565c0";
-    selectedService = service.textContent;
-  });
-});
-
-// Gestione selezione orario
-const times = document.querySelectorAll(".times div");
 let selectedTime = null;
 
-times.forEach(time => {
-  time.addEventListener("click", () => {
-    times.forEach(t => t.style.background = "#eee");
-    time.style.background = "#c8e6c9";
-    selectedTime = time.textContent;
+const serviceCards = document.querySelectorAll(".service");
+const timeSlots = document.querySelectorAll(".times div");
+const button = document.querySelector("button");
+
+// disabilita pulsante all’inizio
+button.disabled = true;
+
+/* SELEZIONE SERVIZIO */
+serviceCards.forEach(card => {
+  card.addEventListener("click", () => {
+    serviceCards.forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+    selectedService = card.innerText;
+    checkReady();
   });
 });
 
-// Bottone prenota
-document.querySelector("button").addEventListener("click", () => {
-  if (!selectedService || !selectedTime) {
-    alert("Seleziona servizio e orario");
-    return;
+/* SELEZIONE ORARIO */
+timeSlots.forEach(slot => {
+  slot.addEventListener("click", () => {
+    timeSlots.forEach(s => s.classList.remove("selected"));
+    slot.classList.add("selected");
+    selectedTime = slot.innerText;
+    checkReady();
+  });
+});
+
+/* CONTROLLO STATO */
+function checkReady() {
+  if (selectedService && selectedTime) {
+    button.disabled = false;
+  }
+}
+
+/* CONFERMA */
+button.addEventListener("click", () => {
+  const inputs = document.querySelectorAll("input");
+  for (let input of inputs) {
+    if (!input.value) {
+      alert("Compila tutti i campi");
+      return;
+    }
   }
 
   alert(
-    "Prenotazione confermata!\n" +
+    "Prenotazione confermata!\n\n" +
     "Servizio: " + selectedService + "\n" +
     "Orario: " + selectedTime
   );

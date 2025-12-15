@@ -141,3 +141,35 @@ button:active {
   outline: 3px solid #fff;
   box-shadow: 0 0 0 3px var(--primary-dark);
 }
+/* MICRO UX */
+.service,
+.times div {
+  transition: all 0.2s ease;
+}
+
+/* servizio selezionato */
+.service.selected {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* orario selezionato */
+.times div.selected {
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+/* input focus */
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(30,136,229,0.2);
+}
+
+/* pulsante disabilitato */
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
